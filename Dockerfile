@@ -14,6 +14,8 @@ RUN npm run build
 # Stage 2: Serve the application using Nginx
 FROM nginx:alpine
 
+RUN apk add --no-cache nginx
+
 # Copy built application files from build stage
 COPY --from=build /app/dist/my-angular-app /usr/share/nginx/html
 
